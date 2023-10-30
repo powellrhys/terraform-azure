@@ -8,7 +8,7 @@ __pycache__/
 *.tfstate.backup
 *.lock.hcl
 .terraform/
-
+*.tfstate.lock.info
 
 # C extensions
 *.so
