@@ -11,12 +11,16 @@ Repository responsible for all azure related deployments. Azure deployments back
 #### Custom Terraform Modules
 
 - [WebApp Deployment](https://github.com/powellrhys/terraform-azure/tree/main/modules/webapp)
+- [SQL Server Deployment](https://github.com/powellrhys/terraform-azure/tree/main/modules/sql-server)
+- [Key Vault Deployment](https://github.com/powellrhys/terraform-azure/tree/main/modules/key-vault)
 
 #### Azure Resources Provisioned by Terraform
 
 - Azure Resource Group
-- Azure App Service Plan
+- Azure Service Plan
 - Azure App Service
+- Azure SQL Server
+- Azure SQL Database
 
 #### Deployed Resources 
 

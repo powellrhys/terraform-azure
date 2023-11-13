@@ -69,5 +69,21 @@ module "powellrhys-sql-server" {
   sql_server_location            = azurerm_resource_group.sql_rg.location
   sql_server_database_name       = "powellrhys-sql-database"
   admin_password_rotation_months = 6
+}
 
+resource "azurerm_resource_group" "kv_rg" {
+  name     = "key-vault-group"
+  location = "West Europe"
+}
+
+data "azurerm_client_config" "current" {}
+
+module "powellrhys-key-vault" {
+  source                        = "./modules/key-vault"
+  key_vault_name                = "powellrhys-key-vault"
+  key_vault_resource_group_name = azurerm_resource_group.kv_rg.name
+  key_vault_location            = azurerm_resource_group.kv_rg.location
+  tenant_id                     = data.azurerm_client_config.current.tenant_id
+  object_id                     = data.azurerm_client_config.current.object_id
+  permissions                   = ["Get", "List"]
 }
