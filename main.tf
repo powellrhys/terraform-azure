@@ -33,7 +33,7 @@ module "fantasy-premier-league-streamlit" {
   location            = azurerm_resource_group.webapp_rg.location
   resource_group_name = azurerm_resource_group.webapp_rg.name
   service_plan_id     = azurerm_service_plan.webapp_service_plan.id
-  docker_image        = "powellrhys/fantasy-premier-league-streamlit"
+  docker_image        = "powellrhys/fantasy-premier-league-streamlit-frontend"
   docker_image_tag    = "latest"
   app_settings = {
     DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
