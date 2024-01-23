@@ -41,7 +41,7 @@ module "fantasy-premier-league-streamlit" {
     WEBSITES_PORT              = "8501"
     sql_server_name = "var.sql_server_name"
     sql_server_database = "var.sql_server_database"
-    sql_server_username = "var.sql_server_username"
+    sql_server_username = module.powellrhys-sql-server.sql_server_username
     sql_server_password = module.powellrhys-sql-server.sql_server_password
     manager_id = var.fpl_manager_id
     leagues = var.fpl_league_ids
