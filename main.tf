@@ -45,6 +45,7 @@ module "fantasy-premier-league-streamlit" {
     sql_server_password        = module.powellrhys-sql-server.sql_server_password
     manager_id                 = var.fpl_manager_id
     leagues                    = var.fpl_league_ids
+    password                   = var.fpl_password
   }
 }
 
