@@ -39,12 +39,12 @@ module "fantasy-premier-league-streamlit" {
     DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
     PORT                       = "8501"
     WEBSITES_PORT              = "8501"
-    sql_server_name = "var.sql_server_name"
-    sql_server_database = "var.sql_server_database"
-    sql_server_username = module.powellrhys-sql-server.sql_server_username
-    sql_server_password = module.powellrhys-sql-server.sql_server_password
-    manager_id = var.fpl_manager_id
-    leagues = var.fpl_league_ids
+    sql_server_name            = module.powellrhys-sql-server.sql_server_name
+    sql_server_database        = module.powellrhys-sql-server.sql_server_database
+    sql_server_username        = module.powellrhys-sql-server.sql_server_username
+    sql_server_password        = module.powellrhys-sql-server.sql_server_password
+    manager_id                 = var.fpl_manager_id
+    leagues                    = var.fpl_league_ids
   }
 }
 
