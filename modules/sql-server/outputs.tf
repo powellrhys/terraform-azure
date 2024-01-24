@@ -7,7 +7,7 @@ output "sql_server_username" {
 }
 
 output "sql_server_name" {
-    value = azurerm_sql_server.sql_server.name
+    value = azurerm_sql_server.sql_server.fully_qualified_domain_name
 }
 
 output "sql_server_database" {
