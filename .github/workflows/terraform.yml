@@ -51,7 +51,7 @@ jobs:
         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
         fpl_password: ${{ vars.fpl_password}}
       if: github.event_name == 'pull_request'
-      run: terraform plan
+      run: terraform plan -var fpl_password=$fpl_password
 
       # On push to main, build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
