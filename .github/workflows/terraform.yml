@@ -50,8 +50,16 @@ jobs:
         ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
         fpl_password: ${{ vars.fpl_password}}
+        fpl_manager_id: ${{ vars.fpl_manager_id}}
+        fpl_league_ids: ${{ vars.fpl_league_ids}}
       if: github.event_name == 'pull_request'
-      run: terraform plan -var fpl_password=$fpl_password
+      run: |
+        terraform plan -var `
+        fpl_password=$fpl_password `
+        fpl_manager_id=$fpl_manager_id `
+        fpl_league_ids=$fpl_league_ids
+
+
 
       # On push to main, build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
