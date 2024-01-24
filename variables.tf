@@ -9,3 +9,9 @@ variable "fpl_manager_id" {
   default     = "123"
   description = "FPL manager ID"
 }
+
+variable "fpl_password" {
+  type        = string
+  default     = "123"
+  description = "Frontend Password"
+}
