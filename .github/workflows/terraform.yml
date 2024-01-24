@@ -53,7 +53,9 @@ jobs:
         fpl_manager_id: ${{ vars.fpl_manager_id}}
         fpl_league_ids: ${{ vars.fpl_league_ids}}
       if: github.event_name == 'pull_request'
-      run: terraform plan -var fpl_password=$fpl_password
+      run: |
+        terraform plan `
+          -var fpl_password=$fpl_password
 
       # On push to main, build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
