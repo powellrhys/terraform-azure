@@ -71,12 +71,16 @@ jobs:
           fpl_password: ${{ secrets.fpl_password}}
           fpl_manager_id: ${{ vars.fpl_manager_id}}
           fpl_league_ids: ${{ vars.fpl_league_ids}}
+          train_delay_username: ${{ secrets.train_delay_username}}
+          train_delay_password: ${{ secrets.train_delay_password}}
         if: github.event_name == 'pull_request'
         run: |
           terraform plan \
             -var "fpl_password=$fpl_password" \
             -var "fpl_manager_id=$fpl_manager_id" \
-            -var "fpl_league_ids=$fpl_league_ids"
+            -var "fpl_league_ids=$fpl_league_ids" \
+            -var "train_delay_username=$train_delay_username" \
+            -var "train_delay_password=$train_delay_password"
 
         # On push to main, build or change infrastructure according to Terraform configuration files
       - name: Terraform Apply
@@ -89,8 +93,12 @@ jobs:
           fpl_password: ${{ secrets.fpl_password}}
           fpl_manager_id: ${{ vars.fpl_manager_id}}
           fpl_league_ids: ${{ vars.fpl_league_ids}}
+          train_delay_username: ${{ secrets.train_delay_username}}
+          train_delay_password: ${{ secrets.train_delay_password}}
         run: |
           terraform apply -auto-approve \
             -var "fpl_password=$fpl_password" \
             -var "fpl_manager_id=$fpl_manager_id" \
-            -var "fpl_league_ids=$fpl_league_ids"
+            -var "fpl_league_ids=$fpl_league_ids" \
+            -var "train_delay_username=$train_delay_username" \
+            -var "train_delay_password=$train_delay_password"
