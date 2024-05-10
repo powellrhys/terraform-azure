@@ -76,6 +76,8 @@ module "train-delay" {
     DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
     PORT                       = "8501"
     WEBSITES_PORT              = "8501"
+    account_username           = var.train_delay_username
+    account_password           = var.train_delay_password
   }
 }
 
