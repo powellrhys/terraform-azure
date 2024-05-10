@@ -15,3 +15,15 @@ variable "fpl_password" {
   default     = "123"
   description = "Frontend Password"
 }
+
+variable "train_delay_username" {
+  type        = string
+  default     = "123"
+  description = "Train Delay API Username"
+}
+
+variable "train_delay_password" {
+  type        = string
+  default     = "123"
+  description = "Train Delay API Password"
+}
