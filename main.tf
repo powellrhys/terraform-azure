@@ -37,8 +37,8 @@ module "fantasy-premier-league-backend" {
   docker_image_tag    = "latest"
   app_settings = {
     DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
-    PORT                       = "8501"
-    WEBSITES_PORT              = "8501"
+    PORT                       = "8000"
+    WEBSITES_PORT              = "8000"
     sql_server_name            = module.powellrhys-sql-server.sql_server_name
     sql_server_database        = module.powellrhys-sql-server.sql_server_database
     sql_server_username        = module.powellrhys-sql-server.sql_server_username
