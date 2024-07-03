@@ -65,6 +65,7 @@ module "fantasy-premier-league-streamlit" {
     sql_server_database        = module.powellrhys-sql-server.sql_server_database
     sql_server_username        = module.powellrhys-sql-server.sql_server_username
     sql_server_password        = module.powellrhys-sql-server.sql_server_password
+    api_url                    = module.fantasy-premier-league-backend.default_hostname
     manager_id                 = var.fpl_manager_id
     leagues                    = var.fpl_league_ids
     password                   = var.fpl_password
