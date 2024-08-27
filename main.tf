@@ -72,6 +72,29 @@ module "fantasy-premier-league-streamlit" {
   }
 }
 
+module "fantasy-premier-league-react" {
+  source              = "./modules/webapp"
+  web_app_name        = "fantasy-premier-league-react"
+  location            = azurerm_resource_group.webapp_rg.location
+  resource_group_name = azurerm_resource_group.webapp_rg.name
+  service_plan_id     = azurerm_service_plan.webapp_service_plan.id
+  docker_image        = "powellrhys/fantasy-premier-league-frontend-react"
+  docker_image_tag    = "latest"
+  app_settings = {
+    DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
+    PORT                       = "8501"
+    WEBSITES_PORT              = "8501"
+    sql_server_name            = module.powellrhys-sql-server.sql_server_name
+    sql_server_database        = module.powellrhys-sql-server.sql_server_database
+    sql_server_username        = module.powellrhys-sql-server.sql_server_username
+    sql_server_password        = module.powellrhys-sql-server.sql_server_password
+    api_url                    = module.fantasy-premier-league-backend.default_hostname
+    manager_id                 = var.fpl_manager_id
+    leagues                    = var.fpl_league_ids
+    password                   = var.fpl_password
+  }
+}
+
 module "tf-number-classification" {
   source              = "./modules/webapp"
   web_app_name        = "tf-number-classification"
