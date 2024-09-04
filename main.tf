@@ -82,6 +82,7 @@ module "fantasy-premier-league-react" {
   docker_image_tag    = "latest"
   app_settings = {
     DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
+    DOCKER_ENABLE_CI           = "true"
     PORT                       = "8000"
     WEBSITES_PORT              = "8000"
     sql_server_name            = module.powellrhys-sql-server.sql_server_name
