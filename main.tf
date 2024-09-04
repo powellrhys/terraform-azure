@@ -88,7 +88,7 @@ module "fantasy-premier-league-react" {
     sql_server_database        = module.powellrhys-sql-server.sql_server_database
     sql_server_username        = module.powellrhys-sql-server.sql_server_username
     sql_server_password        = module.powellrhys-sql-server.sql_server_password
-    api_url                    = module.fantasy-premier-league-backend.default_hostname
+    api_url                    = "https://fantasy-premier-league-react.azurewebsites.net"
     api_key                    = var.fpl_api_key
     dashboard_key              = var.fpl_dashboard_key
     manager_id                 = var.fpl_manager_id
