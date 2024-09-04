@@ -71,8 +71,8 @@ jobs:
           fpl_password: ${{ secrets.fpl_password}}
           fpl_manager_id: ${{ vars.fpl_manager_id}}
           fpl_league_ids: ${{ vars.fpl_league_ids}}
-          fpl_api_key: ${{ vars.fpl_api_key }}
-          fpl_dashboard_key: ${{ vars.dashboard_key }}
+          fpl_api_key: ${{ secrets.fpl_api_key }}
+          fpl_dashboard_key: ${{ secrets.dashboard_key }}
           train_delay_username: ${{ secrets.train_delay_username}}
           train_delay_password: ${{ secrets.train_delay_password}}
         if: github.event_name == 'pull_request'
@@ -97,8 +97,8 @@ jobs:
           fpl_password: ${{ secrets.fpl_password}}
           fpl_manager_id: ${{ vars.fpl_manager_id}}
           fpl_league_ids: ${{ vars.fpl_league_ids}}
-          fpl_api_key: ${{ vars.fpl_api_key }}
-          fpl_dashboard_key: ${{ vars.dashboard_key }}
+          fpl_api_key: ${{ secrets.fpl_api_key }}
+          fpl_dashboard_key: ${{ secrets.dashboard_key }}
           train_delay_username: ${{ secrets.train_delay_username}}
           train_delay_password: ${{ secrets.train_delay_password}}
         run: |
