@@ -16,6 +16,18 @@ variable "fpl_password" {
   description = "Frontend Password"
 }
 
+variable "fpl_api_key" {
+  type        = string
+  default     = "123"
+  description = "API React Dashboard FPL Key"
+}
+
+variable "fpl_dashboard_key" {
+  type        = string
+  default     = "123"
+  description = "React Dashboard FPL Password"
+}
+
 variable "train_delay_username" {
   type        = string
   default     = "123"

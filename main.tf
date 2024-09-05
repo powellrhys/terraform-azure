@@ -82,13 +82,16 @@ module "fantasy-premier-league-react" {
   docker_image_tag    = "latest"
   app_settings = {
     DOCKER_REGISTRY_SERVER_URL = "https://index.docker.io/v1"
+    DOCKER_ENABLE_CI           = "true"
     PORT                       = "8000"
     WEBSITES_PORT              = "8000"
     sql_server_name            = module.powellrhys-sql-server.sql_server_name
     sql_server_database        = module.powellrhys-sql-server.sql_server_database
     sql_server_username        = module.powellrhys-sql-server.sql_server_username
     sql_server_password        = module.powellrhys-sql-server.sql_server_password
-    api_url                    = module.fantasy-premier-league-backend.default_hostname
+    api_url                    = "https://fantasy-premier-league-react.azurewebsites.net"
+    api_key                    = var.fpl_api_key
+    dashboard_key              = var.fpl_dashboard_key
     manager_id                 = var.fpl_manager_id
     leagues                    = var.fpl_league_ids
     password                   = var.fpl_password
