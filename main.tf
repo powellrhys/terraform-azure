@@ -19,12 +19,30 @@ resource "azurerm_resource_group" "webapp_rg" {
   location = "westeurope"
 }
 
+resource "azurerm_resource_group" "storage_rg" {
+  name     = "storage-resource-group"
+  location = "westeurope"
+}
+
 resource "azurerm_service_plan" "webapp_service_plan" {
   name                = "webapps"
   resource_group_name = azurerm_resource_group.webapp_rg.name
   location            = azurerm_resource_group.webapp_rg.location
   os_type             = "Linux"
   sku_name            = "F1"
+}
+
+module "project-storage" {
+  source = "./modules/storage-account"
+  storage_account_name = "project-storage"
+  resource_group_name = azurerm_resource_group.storage_rg.name
+  location = azurerm_resource_group.storage_rg.location
+}
+
+resource "azurerm_storage_container" "strava-container" {
+  name                  = "strava"
+  storage_account_id    = module.project-storage.id
+  container_access_type = "private"
 }
 
 module "fantasy-premier-league-backend" {
