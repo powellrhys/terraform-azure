@@ -33,15 +33,15 @@ resource "azurerm_service_plan" "webapp_service_plan" {
 }
 
 module "project-storage" {
-  source = "./modules/storage-account"
+  source               = "./modules/storage-account"
   storage_account_name = "project-storage"
-  resource_group_name = azurerm_resource_group.storage_rg.name
-  location = azurerm_resource_group.storage_rg.location
+  resource_group_name  = azurerm_resource_group.storage_rg.name
+  location             = azurerm_resource_group.storage_rg.location
 }
 
 resource "azurerm_storage_container" "strava-container" {
   name                  = "strava"
-  storage_account_id    = module.project-storage.id
+  storage_account_id    = module.project-storage.storage_account_id
   container_access_type = "private"
 }
 
