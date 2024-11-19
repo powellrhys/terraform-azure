@@ -41,7 +41,7 @@ module "project-storage" {
 
 resource "azurerm_storage_container" "strava-container" {
   name                  = "strava"
-  storage_account_name  = azurerm_storage_account.storage_account.name
+  storage_account_name  = module.project-storage.storage_account_name
   container_access_type = "private"
 }
 
