@@ -34,7 +34,7 @@ resource "azurerm_service_plan" "webapp_service_plan" {
 
 module "project-storage" {
   source                               = "./modules/storage-account"
-  storage_account_name                 = "project-storage"
+  storage_account_name                 = "projectdata"
   storage_account_resource_group_name  = azurerm_resource_group.storage_rg.name
   storage_account_location             = azurerm_resource_group.storage_rg.location
 }
