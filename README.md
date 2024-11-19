@@ -13,6 +13,7 @@ Repository responsible for all azure related deployments. Azure deployments back
 - [WebApp Deployment](https://github.com/powellrhys/terraform-azure/tree/main/modules/webapp)
 - [SQL Server Deployment](https://github.com/powellrhys/terraform-azure/tree/main/modules/sql-server)
 - [Key Vault Deployment](https://github.com/powellrhys/terraform-azure/tree/main/modules/key-vault)
+- [Storage Account](https://github.com/powellrhys/terraform-azure/tree/main/modules/storage-account)
 
 #### Azure Resources Provisioned by Terraform
 
@@ -21,6 +22,7 @@ Repository responsible for all azure related deployments. Azure deployments back
 - Azure App Service
 - Azure SQL Server
 - Azure SQL Database
+- Azure Storage Account
 
 #### Deployed Resources 
 
