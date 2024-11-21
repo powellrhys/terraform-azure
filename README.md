@@ -27,5 +27,6 @@ Repository responsible for all azure related deployments. Azure deployments back
 #### Deployed Resources 
 
 - WebApp: [fantasy-premier-league-streamlit](https://fantasy-premier-league-streamlit.azurewebsites.net/)
+- WebApp: [fantasy-premier-league-react](fantasy-premier-league-react.azurewebsites.net)
 - WebApp: [tf-number-classification](https://tf-number-classification.azurewebsites.net/)
-- WebApp [train-delay](train-delay.azurewebsites.net)
+- WebApp: [strava-streamlit-frontend](https://strava-streamlit-frontend.azurewebsites.net/)
