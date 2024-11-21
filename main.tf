@@ -133,7 +133,7 @@ module "tf-number-classification" {
 
 module "strava-streamlit-frontend" {
   source              = "./modules/webapp"
-  web_app_name        = "train-delay"
+  web_app_name        = "strava-streamlit-frontend"
   location            = azurerm_resource_group.webapp_rg.location
   resource_group_name = azurerm_resource_group.webapp_rg.name
   service_plan_id     = azurerm_service_plan.webapp_service_plan.id
@@ -143,12 +143,12 @@ module "strava-streamlit-frontend" {
     DOCKER_REGISTRY_SERVER_URL        = "https://index.docker.io/v1"
     PORT                              = "8501"
     WEBSITES_PORT                     = "8501"
-    storage_account_connection_string = var.STORAGE_ACCOUNT_CONNECTION_STRING
-    storage_account_container_name    = "strava"
-    app_username                      = var.APP_USERNAME
-    app_password                      = var.APP_PASSWORD
-    strava_username                   = var.STRAVA_USERNAME
-    strava_password                   = var.STRAVA_PASSWORD
+    STORAGE_ACCOUNT_CONNECTION_STRING = var.storage_account_connection_string
+    STORAGE_ACCOUNT_CONTAINER_NAME    = "strava"
+    APP_USERNAME                      = var.strava_app_username
+    APP_PASSWORD                      = var.strava_app_password
+    STRAVA_USERNAME                   = var.strava_account_username
+    STRAVA_PASSWORD                   = var.strava_account_password
   }
 }
 
