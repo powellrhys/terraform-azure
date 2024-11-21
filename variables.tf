@@ -28,14 +28,32 @@ variable "fpl_dashboard_key" {
   description = "React Dashboard FPL Password"
 }
 
-variable "train_delay_username" {
+variable "storage_account_connection_string" {
   type        = string
   default     = "123"
-  description = "Train Delay API Username"
+  description = "Strava client id"
 }
 
-variable "train_delay_password" {
+variable "strava_app_username" {
   type        = string
   default     = "123"
-  description = "Train Delay API Password"
+  description = "Strava app username"
+}
+
+variable "strava_app_password" {
+  type        = string
+  default     = "123"
+  description = "Strava app password"
+}
+
+variable "strava_account_username" {
+  type        = string
+  default     = "123"
+  description = "Strava account username"
+}
+
+variable "strava_account_password" {
+  type        = string
+  default     = "123"
+  description = "Strava account password"
 }

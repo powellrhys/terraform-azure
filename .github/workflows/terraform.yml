@@ -63,6 +63,7 @@ jobs:
       # Run a terraform plan for pull requests only
       - name: Terraform Plan
         id: plan
+        if: github.event_name == 'pull_request'
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -73,9 +74,11 @@ jobs:
           fpl_league_ids: ${{ vars.fpl_league_ids}}
           fpl_api_key: ${{ secrets.fpl_api_key }}
           fpl_dashboard_key: ${{ secrets.fpl_dashboard_key }}
-          train_delay_username: ${{ secrets.train_delay_username}}
-          train_delay_password: ${{ secrets.train_delay_password}}
-        if: github.event_name == 'pull_request'
+          storage_account_connection_string: ${{ secrets.storage_account_connection_string}}
+          strava_app_username: ${{ secrets.strava_app_username}}
+          strava_app_password: ${{ secrets.strava_app_password}}
+          strava_account_username: ${{ secrets.strava_account_username}}
+          strava_account_password: ${{ secrets.strava_account_password}}
         run: |
           terraform plan \
             -var "fpl_password=$fpl_password" \
@@ -83,8 +86,11 @@ jobs:
             -var "fpl_league_ids=$fpl_league_ids" \
             -var "fpl_api_key=$fpl_api_key" \
             -var "fpl_dashboard_key=$fpl_dashboard_key" \
-            -var "train_delay_username=$train_delay_username" \
-            -var "train_delay_password=$train_delay_password"
+            -var "storage_account_connection_string=$storage_account_connection_string" \
+            -var "strava_app_username=$strava_app_username" \
+            -var "strava_app_password=$strava_app_password" \
+            -var "strava_account_username=$strava_account_username" \
+            -var "strava_account_password=$strava_account_password"
 
         # On push to main, build or change infrastructure according to Terraform configuration files
       - name: Terraform Apply
@@ -99,8 +105,11 @@ jobs:
           fpl_league_ids: ${{ vars.fpl_league_ids}}
           fpl_api_key: ${{ secrets.fpl_api_key }}
           fpl_dashboard_key: ${{ secrets.fpl_dashboard_key }}
-          train_delay_username: ${{ secrets.train_delay_username}}
-          train_delay_password: ${{ secrets.train_delay_password}}
+          storage_account_connection_string: ${{ secrets.storage_account_connection_string}}
+          strava_app_username: ${{ secrets.strava_app_username}}
+          strava_app_password: ${{ secrets.strava_app_password}}
+          strava_account_username: ${{ secrets.strava_account_username}}
+          strava_account_password: ${{ secrets.strava_account_password}}
         run: |
           terraform apply -auto-approve \
             -var "fpl_password=$fpl_password" \
@@ -108,5 +117,8 @@ jobs:
             -var "fpl_league_ids=$fpl_league_ids" \
             -var "fpl_api_key=$fpl_api_key" \
             -var "fpl_dashboard_key=$fpl_dashboard_key" \
-            -var "train_delay_username=$train_delay_username" \
-            -var "train_delay_password=$train_delay_password"
+            -var "storage_account_connection_string=$storage_account_connection_string" \
+            -var "strava_app_username=$strava_app_username" \
+            -var "strava_app_password=$strava_app_password" \
+            -var "strava_account_username=$strava_account_username" \
+            -var "strava_account_password=$strava_account_password"
