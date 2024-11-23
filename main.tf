@@ -149,6 +149,7 @@ module "strava-streamlit-frontend" {
     APP_PASSWORD                      = var.strava_app_password
     STRAVA_USERNAME                   = var.strava_account_username
     STRAVA_PASSWORD                   = var.strava_account_password
+    GITHUB_ACCESS_TOKEN               = var.github_access_token
   }
 }
 
