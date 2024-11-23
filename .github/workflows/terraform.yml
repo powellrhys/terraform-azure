@@ -79,7 +79,7 @@ jobs:
           strava_app_password: ${{ secrets.strava_app_password}}
           strava_account_username: ${{ secrets.strava_account_username}}
           strava_account_password: ${{ secrets.strava_account_password}}
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
         run: |
           terraform plan \
             -var "fpl_password=$fpl_password" \
@@ -112,7 +112,7 @@ jobs:
           strava_app_password: ${{ secrets.strava_app_password}}
           strava_account_username: ${{ secrets.strava_account_username}}
           strava_account_password: ${{ secrets.strava_account_password}}
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
         run: |
           terraform apply -auto-approve \
             -var "fpl_password=$fpl_password" \
