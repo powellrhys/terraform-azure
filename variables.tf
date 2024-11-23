@@ -57,3 +57,9 @@ variable "strava_account_password" {
   default     = "123"
   description = "Strava account password"
 }
+
+variable "github_access_token" {
+  type        = string
+  default     = "123"
+  description = "Github access token"
+}

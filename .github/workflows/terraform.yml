@@ -79,6 +79,7 @@ jobs:
           strava_app_password: ${{ secrets.strava_app_password}}
           strava_account_username: ${{ secrets.strava_account_username}}
           strava_account_password: ${{ secrets.strava_account_password}}
+          github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
         run: |
           terraform plan \
             -var "fpl_password=$fpl_password" \
@@ -90,7 +91,8 @@ jobs:
             -var "strava_app_username=$strava_app_username" \
             -var "strava_app_password=$strava_app_password" \
             -var "strava_account_username=$strava_account_username" \
-            -var "strava_account_password=$strava_account_password"
+            -var "strava_account_password=$strava_account_password" \
+            -var "github_access_token"=$github_access_token
 
         # On push to main, build or change infrastructure according to Terraform configuration files
       - name: Terraform Apply
@@ -110,6 +112,7 @@ jobs:
           strava_app_password: ${{ secrets.strava_app_password}}
           strava_account_username: ${{ secrets.strava_account_username}}
           strava_account_password: ${{ secrets.strava_account_password}}
+          github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
         run: |
           terraform apply -auto-approve \
             -var "fpl_password=$fpl_password" \
@@ -121,4 +124,5 @@ jobs:
             -var "strava_app_username=$strava_app_username" \
             -var "strava_app_password=$strava_app_password" \
             -var "strava_account_username=$strava_account_username" \
-            -var "strava_account_password=$strava_account_password"
+            -var "strava_account_password=$strava_account_password" \
+            -var "github_access_token"=$github_access_token
