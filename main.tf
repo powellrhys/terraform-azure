@@ -45,6 +45,13 @@ resource "azurerm_storage_container" "strava-container" {
   container_access_type = "private"
 }
 
+resource "azurerm_storage_container" "spotify-container" {
+  name                  = "spotify"
+  storage_account_name  = module.project-storage.storage_account_name
+  container_access_type = "private"
+}
+
+
 module "fantasy-premier-league-backend" {
   source              = "./modules/webapp"
   web_app_name        = "fantasy-premier-league-backend"
