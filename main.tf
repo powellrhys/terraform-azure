@@ -160,6 +160,50 @@ module "strava-streamlit-frontend" {
   }
 }
 
+module "spotify-streamlit-backend" {
+  source              = "./modules/webapp"
+  web_app_name        = "spotify-streamlit-backend"
+  location            = azurerm_resource_group.webapp_rg.location
+  resource_group_name = azurerm_resource_group.webapp_rg.name
+  service_plan_id     = azurerm_service_plan.webapp_service_plan.id
+  docker_image        = "powellrhys/spotify-backend"
+  docker_image_tag    = "latest"
+  app_settings = {
+    DOCKER_REGISTRY_SERVER_URL      = "https://index.docker.io/v1"
+    PORT                            = "3000"
+    WEBSITES_PORT                   = "3000"
+    client_id                       = var.spotify_client_id
+    client_secret                   = var.spotify_client_secret
+    spotify_user_id                 = var.spotify_user_id
+    spotify_username                = var.spotify_username
+    spotify_password                = var.spotify_password
+    blob_storage_connection_string  = var.storage_account_connection_string
+    host_url                        = "https://spotify-backend.azurewebsites.net" 
+  }
+}
+
+module "spotify-streamlit-frontend" {
+  source              = "./modules/webapp"
+  web_app_name        = "spotify-streamlit-frontend"
+  location            = azurerm_resource_group.webapp_rg.location
+  resource_group_name = azurerm_resource_group.webapp_rg.name
+  service_plan_id     = azurerm_service_plan.webapp_service_plan.id
+  docker_image        = "powellrhys/spotify-frontend"
+  docker_image_tag    = "latest"
+  app_settings = {
+    DOCKER_REGISTRY_SERVER_URL      = "https://index.docker.io/v1"
+    PORT                            = "8501"
+    WEBSITES_PORT                   = "8501"
+    client_id                       = var.spotify_client_id
+    client_secret                   = var.spotify_client_secret
+    spotify_user_id                 = var.spotify_user_id
+    spotify_username                = var.spotify_username
+    spotify_password                = var.spotify_password
+    blob_storage_connection_string  = var.storage_account_connection_string
+    host_url                        = module.spotify-streamlit-backend.default_hostname
+  }
+}
+
 resource "azurerm_resource_group" "sql_rg" {
   name     = "sql-resource-group"
   location = "West Europe"

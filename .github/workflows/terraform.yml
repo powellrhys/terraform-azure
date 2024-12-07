@@ -80,6 +80,11 @@ jobs:
           strava_account_username: ${{ secrets.strava_account_username}}
           strava_account_password: ${{ secrets.strava_account_password}}
           github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
+          spotify_client_id: ${{ secrets.spotify_client_id }}
+          spotify_client_secret: ${{ secrets.spotify_client_secret }}
+          spotify_user_id: ${{ secrets.spotify_user_id }}
+          spotify_username: ${{ secrets.spotify_username }}
+          spotify_password: ${{ secrets.spotify_password }}
         run: |
           terraform plan \
             -var "fpl_password=$fpl_password" \
@@ -92,7 +97,12 @@ jobs:
             -var "strava_app_password=$strava_app_password" \
             -var "strava_account_username=$strava_account_username" \
             -var "strava_account_password=$strava_account_password" \
-            -var "github_access_token"=$github_access_token
+            -var "github_access_token"=$github_access_token \
+            -var "spotify_client_id"=$spotify_client_id \
+            -var "spotify_client_secret"=$spotify_client_secret \
+            -var "spotify_user_id"=$spotify_user_id \
+            -var "spotify_username"=$spotify_username \
+            -var "spotify_password"=$spotify_password
 
         # On push to main, build or change infrastructure according to Terraform configuration files
       - name: Terraform Apply
@@ -113,6 +123,11 @@ jobs:
           strava_account_username: ${{ secrets.strava_account_username}}
           strava_account_password: ${{ secrets.strava_account_password}}
           github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
+          spotify_client_id: ${{ secrets.spotify_client_id }}
+          spotify_client_secret: ${{ secrets.spotify_client_secret }}
+          spotify_user_id: ${{ secrets.spotify_user_id }}
+          spotify_username: ${{ secrets.spotify_username }}
+          spotify_password: ${{ secrets.spotify_password }}
         run: |
           terraform apply -auto-approve \
             -var "fpl_password=$fpl_password" \
@@ -125,4 +140,9 @@ jobs:
             -var "strava_app_password=$strava_app_password" \
             -var "strava_account_username=$strava_account_username" \
             -var "strava_account_password=$strava_account_password" \
-            -var "github_access_token"=$github_access_token
+            -var "github_access_token"=$github_access_token \
+            -var "spotify_client_id"=$spotify_client_id \
+            -var "spotify_client_secret"=$spotify_client_secret \
+            -var "spotify_user_id"=$spotify_user_id \
+            -var "spotify_username"=$spotify_username \
+            -var "spotify_password"=$spotify_password
