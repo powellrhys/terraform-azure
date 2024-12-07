@@ -178,7 +178,7 @@ module "spotify-streamlit-backend" {
     spotify_username                = var.spotify_username
     spotify_password                = var.spotify_password
     blob_storage_connection_string  = var.storage_account_connection_string
-    host_url                        = "https://spotify-backend.azurewebsites.net" 
+    host_url                        = "https://spotify-streamlit-backend.azurewebsites.net" 
   }
 }
 
