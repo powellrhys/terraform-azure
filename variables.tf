@@ -63,3 +63,33 @@ variable "github_access_token" {
   default     = "123"
   description = "Github access token"
 }
+
+variable "spotify_client_id" {
+  type        = string
+  default     = "123"
+  description = "Spotify client id"
+}
+
+variable "spotify_client_secret" {
+  type        = string
+  default     = "123"
+  description = "Spotify client secret"
+}
+
+variable "spotify_user_id" {
+  type        = string
+  default     = "123"
+  description = "Spotify user id"
+}
+
+variable "spotify_username" {
+  type        = string
+  default     = "123"
+  description = "Spotify username"
+}
+
+variable "spotify_password" {
+  type        = string
+  default     = "123"
+  description = "Spotify password"
+}
