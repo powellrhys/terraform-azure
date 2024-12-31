@@ -81,7 +81,7 @@ jobs:
           strava_account_password: ${{ secrets.strava_account_password}}
           github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
           spotify_app_username: ${{ secrets.spotify_app_username }}
-          spotify_app_password: ${{ secrets.spotify_app_password }}          
+          spotify_app_password: ${{ secrets.spotify_app_password }}   
           spotify_client_id: ${{ secrets.spotify_client_id }}
           spotify_client_secret: ${{ secrets.spotify_client_secret }}
           spotify_user_id: ${{ secrets.spotify_user_id }}
@@ -128,7 +128,7 @@ jobs:
           strava_account_password: ${{ secrets.strava_account_password}}
           github_access_token: ${{ secrets.ACTIONS_PAT_TOKEN }}
           spotify_app_username: ${{ secrets.spotify_app_username }}
-          spotify_app_password: ${{ secrets.spotify_app_password }} 
+          spotify_app_password: ${{ secrets.spotify_app_password }}
           spotify_client_id: ${{ secrets.spotify_client_id }}
           spotify_client_secret: ${{ secrets.spotify_client_secret }}
           spotify_user_id: ${{ secrets.spotify_user_id }}
