@@ -93,3 +93,15 @@ variable "spotify_password" {
   default     = "123"
   description = "Spotify password"
 }
+
+variable "spotify_app_username" {
+  type        = string
+  default     = "123"
+  description = "Spotify app username"
+}
+
+variable "spotify_app_password" {
+  type        = string
+  default     = "123"
+  description = "Spotify app password"
+}

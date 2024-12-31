@@ -194,6 +194,8 @@ module "spotify-streamlit-frontend" {
     DOCKER_REGISTRY_SERVER_URL      = "https://index.docker.io/v1"
     PORT                            = "8501"
     WEBSITES_PORT                   = "8501"
+    APP_USERNAME                    = var.spotify_app_username
+    APP_PASSWORD                    = var.spotify_app_password
     client_id                       = var.spotify_client_id
     client_secret                   = var.spotify_client_secret
     spotify_user_id                 = var.spotify_user_id
