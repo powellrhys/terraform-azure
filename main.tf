@@ -51,6 +51,11 @@ resource "azurerm_storage_container" "spotify-container" {
   container_access_type = "private"
 }
 
+resource "azurerm_storage_container" "play-cricket-container" {
+  name                  = "play-cricket"
+  storage_account_name  = module.project-storage.storage_account_name
+  container_access_type = "private"
+}
 
 module "fantasy-premier-league-backend" {
   source              = "./modules/webapp"
